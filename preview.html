@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>NOUBIA LIMITED</title>
+    <!-- Bootstrap 5 CSS + LTR -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome 6 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <style>
+        * {
+            font-family: 'Cairo', sans-serif;
+            transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+        }
+
+        /* ========== THEME VARIABLES ========== */
+        :root {
+            --bg-primary: #ffffff;
+            --bg-secondary: #f8f9fa;
+            --text-primary: #2c3e50;
+            --text-secondary: #6c757d;
+            --card-bg: #ffffff;
+            --navbar-bg: rgba(255, 255, 255, 0.95);
+            --border-color: #e9ecef;
+            --btn-primary-bg: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --btn-primary-color: #ffffff;
+            --footer-bg: #2c3e50;
+            --footer-text: #ecf0f1;
+            --shadow-sm: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+            --shadow-md: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 1rem 3rem rgba(0, 0, 0, 0.1);
+        }
+
+        body.dark {
+            --bg-primary: #1a1a2e;
+            --bg-secondary: #16213e;
+            --text-primary: #ffffff;
+            --text-secondary: #a0a8c0;
+            --card-bg: #1f1f2f;
+            --navbar-bg: rgba(26, 26, 46, 0.95);
+            --border-color: #2d2d44;
+            --btn-primary-bg: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --footer-bg: #0f0f1a;
+            --footer-text: #e0e0e0;
+            --shadow-sm: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.3);
+            --shadow-md: 0 0.5rem 1rem rgba(0, 0, 0, 0.4);
+            --shadow-lg: 0 1rem 3rem rgba(0, 0, 0, 0.4);
+        }
+
+        body {
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            font-family: 'Cairo', sans-serif;
+            overflow-x: hidden;
+        }
+
+        /* Full Screen Sections */
+        .full-screen {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        /* Remove scroll snap to allow footer to show */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Modern Card Style */
+        .modern-card {
+            background: var(--card-bg);
+            border-radius: 20px;
+            border: 1px solid var(--border-color);
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .modern-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+        }
+
+        /* Navbar */
+        .navbar {
+            background: var(--navbar-bg);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border-color);
+            padding: 12px 0;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        .navbar-brand {
+            font-weight: 800;
+            font-size: 1.8rem;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .nav-link {
+            font-weight: 600;
+            color: var(--text-primary) !important;
+            transition: all 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: #667eea !important;
+            transform: translateY(-2px);
+        }
+
+        /* Buttons */
+        .btn-gradient {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 10px 28px;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .btn-gradient:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+            color: white;
+        }
+
+        .btn-outline-gradient {
+            background: transparent;
+            border: 2px solid #667eea;
+            color: #667eea;
+            padding: 8px 26px;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .btn-outline-gradient:hover {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        /* Hero Section */
+        .hero-section {
+            background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
+        }
+
+        .company-logo {
+            width: 120px;
+            height: 120px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 30px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            transition: all 0.3s ease;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .company-logo i {
+            font-size: 3.5rem;
+            color: white;
+        }
+
+        /* Form Elements */
+        .form-modern {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            padding: 12px 20px;
+            border-radius: 12px;
+            color: var(--text-primary);
+            transition: all 0.3s ease;
+        }
+
+        .form-modern:focus {
+            border-color: #667eea;
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+
+        /* Team Image */
+        .team-image {
+            background: linear-gradient(135deg, #667eea20 0%, #764ba220 100%);
+            border-radius: 20px;
+            padding: 30px;
+            border: 1px solid var(--border-color);
+        }
+
+        /* Info Cards */
+        .info-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .info-card:hover {
+            transform: translateX(-5px);
+            box-shadow: var(--shadow-md);
+        }
+
+        /* Scroll Indicator */
+        .scroll-indicator {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: bounce 2s infinite;
+            cursor: pointer;
+            z-index: 10;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateX(-50%) translateY(0);
+            }
+            40% {
+                transform: translateX(-50%) translateY(-20px);
+            }
+            60% {
+                transform: translateX(-50%) translateY(-10px);
+            }
+        }
+
+        .scroll-indicator i {
+            font-size: 2rem;
+            color: #667eea;
+            opacity: 0.7;
+        }
+
+        /* Theme Toggle */
+        .theme-toggle {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 50px;
+            padding: 8px 20px;
+            color: var(--text-primary);
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .theme-toggle:hover {
+            background: var(--bg-secondary);
+            transform: translateY(-2px);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--footer-bg);
+            color: var(--footer-text);
+            padding: 50px 0 30px;
+            position: relative;
+            z-index: 10;
+        }
+
+        footer a {
+            color: var(--footer-text);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        footer a:hover {
+            color: #667eea;
+            transform: translateX(-5px);
+            display: inline-block;
+        }
+
+        /* Privacy Banner */
+        .privacy-banner {
+            background: var(--card-bg);
+            border-top: 3px solid #667eea;
+            box-shadow: var(--shadow-lg);
+            backdrop-filter: blur(10px);
+            z-index: 1100;
+        }
+
+        /* Scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--bg-secondary);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 10px;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in-up {
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .full-screen {
+                min-height: auto;
+                padding: 100px 0;
+            }
+            
+            .scroll-indicator {
+                display: none;
+            }
+            
+            .navbar-brand {
+                font-size: 1.4rem;
+            }
+        }
+        
+        /* Adjust for fixed navbar */
+        section {
+            scroll-margin-top: 80px;
+        }
+        
+        /* Contact section specific */
+        .contact-section-bg {
+            background: var(--bg-secondary);
+        }
+        
+        /* Make sure sections don't overflow */
+        .container {
+            padding-top: 20px;
+            padding-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Navigation -->
+<nav class="navbar navbar-expand-lg">
+    <div class="container">
+        <a class="navbar-brand" href="#">
+            <i class="fas fa-rocket"></i> NOUBIA LIMITED
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMain">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarMain">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item"><a class="nav-link" href="#home-section">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="#about-section">About Us</a></li>
+                <li class="nav-item"><a class="nav-link" href="#contact-section">Contact Us</a></li>
+            </ul>
+            <div class="d-flex gap-2">
+                <button id="themeToggleBtn" class="theme-toggle">
+                    <i class="fas fa-moon"></i>
+                    <span id="themeText">Dark Mode</span>
+                </button>
+                <a href="#contact-section" class="btn-gradient">Contact Us</a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<main>
+    <!-- Home Section - Full Screen -->
+    <section id="home-section" class="full-screen hero-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-7 text-center text-lg-start" data-aos="fade-up">
+                    <div class="company-logo">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h1 class="display-4 fw-bold mb-3">
+                        NOUBIA LIMITED <span style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">for Digital Solutions</span>
+                    </h1>
+                    <p class="lead mb-4" style="color: var(--text-secondary);">A leading company specialized in creating integrated digital solutions. We believe the future is built with smart software.</p>
+                    <div class="d-flex flex-wrap gap-3 justify-content-center justify-content-lg-start">
+                        <a href="#contact-section" class="btn-gradient btn-lg"><i class="fas fa-envelope me-2"></i>Contact Us</a>
+                        <a href="#" class="btn-outline-gradient btn-lg" id="readMorePolicyBtn"><i class="fas fa-shield-alt me-2"></i>Privacy Policy</a>
+                    </div>
+                    <div class="mt-4">
+                        <i class="fas fa-link"></i> Quick Links: 
+                        <a href="#contact-section" class="text-decoration-none me-2" style="color: var(--text-primary);">Contact Us</a> | 
+                        <a href="#" id="footerPrivacyLink" class="text-decoration-none me-2" style="color: var(--text-primary);">Privacy Policy</a>
+                    </div>
+                </div>
+                <div class="col-lg-5 text-center" data-aos="fade-up" data-aos-delay="200">
+                    <div class="modern-card p-5">
+                        <i class="fas fa-chart-line" style="font-size: 6rem; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;"></i>
+                        <h3 class="mt-3">Smart Solutions for the Future</h3>
+                        <p class="text-muted">We innovate to make a difference</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-indicator" onclick="document.getElementById('about-section').scrollIntoView({behavior: 'smooth'})">
+            <i class="fas fa-chevron-down"></i>
+        </div>
+    </section>
+
+    <!-- About Section - Full Screen -->
+    <section id="about-section" class="full-screen">
+        <div class="container">
+            <div class="text-center mb-5" data-aos="fade-up">
+                <div class="d-inline-block px-4 py-2 rounded-pill" style="background: linear-gradient(135deg, #667eea20 0%, #764ba220 100%);">
+                    <span class="fw-bold" style="color: #667eea;">Who We Are</span>
+                </div>
+                <h2 class="fw-bold mt-3" style="color: var(--text-primary);">About NOUBIA LIMITED</h2>
+            </div>
+            <div class="row g-5 align-items-center">
+                <div class="col-md-6" data-aos="fade-left">
+                    <div class="team-image">
+                        <i class="fas fa-users" style="font-size: 3rem; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;"></i>
+                        <p class="fw-bold mt-3">A complete team of experts</p>
+                        <div class="modern-card p-4 mt-3">
+                            <i class="fas fa-chalkboard-user" style="font-size: 2.5rem; color: #667eea;"></i>
+                            <p class="mt-2 mb-0">More than 50 successful projects</p>
+                            <small class="text-muted">Serving more than 100 clients</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6" data-aos="fade-right">
+                    <h3 class="fw-bold">Company Overview</h3>
+                    <p style="color: var(--text-secondary);">We are a leading national company specialized in creating integrated digital solutions. We believe that the future is built with smart software, and we work as a strategic partner for our clients to transform their ideas and ambitions into a tangible digital reality that contributes to business growth and market leadership.</p>
+                    <div class="mt-4">
+                        <div class="info-card mb-3">
+                            <i class="fas fa-bullseye" style="color: #667eea; font-size: 1.5rem;"></i>
+                            <span class="fw-bold me-2">Our Mission:</span>
+                            <span style="color: var(--text-secondary);">We are committed to delivering smart software solutions, mobile applications, and integrated e-commerce platforms that combine creative design with high programming efficiency. We are here to simplify technology and provide our clients with a secure and scalable digital environment that ensures business growth and strong returns on investment, with reliable and sustainable technical support.</span>
+                        </div>
+                        <div class="info-card mb-3">
+                            <i class="fas fa-eye" style="color: #667eea; font-size: 1.5rem;"></i>
+                            <span class="fw-bold me-2">Our Vision:</span>
+                            <span style="color: var(--text-secondary);">To become the most trusted digital partner and the leading destination in the region for innovative software solutions and e-commerce development, leading digital transformation and empowering businesses to shape their future with intelligence and innovation.</span>
+                        </div>
+                        <div class="info-card mb-3">
+                            <i class="fas fa-chart-simple" style="color: #667eea; font-size: 1.5rem;"></i>
+                            <span class="fw-bold me-2">Our Goals:</span>
+                            <span style="color: var(--text-secondary);">Innovative smart solutions: Developing custom applications and software tailored to our clients' goals.
+
+E-commerce development: Building seamless and integrated stores that drive sales growth.
+
+Quality and security: Committing to the highest standards of secure programming and modern design.
+
+Continuous support: Providing reliable technical support to build long-term partnerships.</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-indicator" onclick="document.getElementById('contact-section').scrollIntoView({behavior: 'smooth'})">
+            <i class="fas fa-chevron-down"></i>
+        </div>
+    </section>
+
+    <!-- Contact Section - Full Screen -->
+    <section id="contact-section" class="full-screen contact-section-bg">
+        <div class="container">
+            <div class="text-center mb-5" data-aos="fade-up">
+                <div class="d-inline-block px-4 py-2 rounded-pill" style="background: linear-gradient(135deg, #667eea20 0%, #764ba220 100%);">
+                    <span class="fw-bold" style="color: #667eea;">Get in Touch with Our Team</span>
+                </div>
+                <h2 class="fw-bold mt-3" style="color: var(--text-primary);">Contact Us</h2>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-5" data-aos="fade-left">
+                    <div class="modern-card p-4 h-100">
+                        <h5 class="fw-bold"><i class="fas fa-envelope" style="color: #667eea;"></i> Official Email</h5>
+                        <p class="fs-5"><a href="mailto:info@yourcompany.com" style="color: var(--text-primary); text-decoration: none;">info@yourcompany.com</a></p>
+                        <hr style="background: var(--border-color);">
+                        <h5 class="fw-bold"><i class="fas fa-map-marker" style="color: #667eea;"></i> Official Email</h5>
+                        <p class="fs-5"><a href="mailto:info@yourcompany.com" style="color: var(--text-primary); text-decoration: none;">info@yourcompany.com</a></p>
+                        <hr style="background: var(--border-color);">
+                        <h5 class="fw-bold mt-3"><i class="fas fa-phone-alt" style="color: #667eea;"></i> Phone Number</h5>
+                        <p class="fs-5">+966 5X XXX XXXX</p>
+                        <hr style="background: var(--border-color);">
+                        <h5 class="fw-bold mt-3"><i class="fas fa-clock" style="color: #667eea;"></i> Working Hours</h5>
+                        <p>Sunday - Thursday: 9:00 AM – 6:00 PM</p>
+                        <div class="mt-4">
+                            <i class="fab fa-whatsapp" style="color: #25D366; font-size: 1.5rem;"></i>
+                            <i class="fab fa-twitter mx-2" style="color: #1DA1F2; font-size: 1.5rem;"></i>
+                            <i class="fab fa-linkedin" style="color: #0077B5; font-size: 1.5rem;"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-7" data-aos="fade-right">
+                    <div class="modern-card p-4 h-100">
+                        <h5 class="fw-bold mb-3"><i class="fas fa-paper-plane" style="color: #667eea;"></i> Message Form</h5>
+                        <form id="contactForm">
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <label class="form-label">Full Name</label>
+                                    <input type="text" class="form-modern w-100" id="fullName" placeholder="Enter your name" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label">Email Address</label>
+                                    <input type="email" class="form-modern w-100" id="emailInput" placeholder="example@domain.com" required>
+                                </div>
+                                <div class="col-12">
+                                    <label class="form-label">Subject</label>
+                                    <input type="text" class="form-modern w-100" id="subject" placeholder="Message subject">
+                                </div>
+                                <div class="col-12">
+                                    <label class="form-label">Message</label>
+                                    <textarea class="form-modern w-100" rows="4" id="messageText" placeholder="Write your message here ..." required></textarea>
+                                </div>
+                                <div class="col-12">
+                                    <button type="submit" class="btn-gradient w-100 py-2">Send Message <i class="fas fa-share me-2"></i></button>
+                                    <div id="formFeedback" class="mt-2 small text-center"></div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<!-- Footer - Now visible -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <h5><i class="fas fa-rocket"></i> NOUBIA LIMITED</h5>
+                <p class="small">A leading company specialized in creating integrated digital solutions. We believe the future is built with smart software.</p>
+                <p class="small mb-0">© 2026 All rights reserved</p>
+            </div>
+            <div class="col-md-3">
+                <h6>Quick Links</h6>
+                <ul class="list-unstyled small">
+                    <li><a href="#home-section">Home</a></li>
+                    <li><a href="#about-section">About Us</a></li>
+                    <li><a href="#contact-section">Contact Us</a></li>
+                </ul>
+            </div>
+            <div class="col-md-3">
+                <h6>Support</h6>
+                <ul class="list-unstyled small">
+                    <li><i class="fas fa-envelope"></i> info@yourcompany.com</li>
+                    <li><i class="fas fa-phone"></i> +966 12 345 6789</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- Privacy Policy Modal -->
+<div class="modal fade" id="privacyPolicyModal" tabindex="-1">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content modern-card">
+            <div class="modal-header" style="border-bottom: 1px solid var(--border-color);">
+                <h5 class="modal-title fw-bold"><i class="fas fa-lock" style="color: #667eea;"></i> Privacy Policy</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body" style="max-height: 60vh; overflow-y: auto;">
+                <h5 style="color: #667eea;">1. Information Collection</h5>
+                <p>At NOUBIA LIMITED, we are committed to protecting the privacy of our website visitors. We may collect some data such as name and email address only when the contact form is filled out.</p>
+                <h5 style="color: #667eea;">2. Use of Information</h5>
+                <p>The data you provide is used to respond to your inquiries and improve our services.</p>
+                <h5 style="color: #667eea;">3. Data Protection</h5>
+                <p>We use appropriate technical and administrative security measures to protect your information.</p>
+                <h5 style="color: #667eea;">4. Cookies</h5>
+                <p>Our website may use cookies to improve the browsing experience.</p>
+                <h5 style="color: #667eea;">5. Policy Updates</h5>
+                <p>We reserve the right to update this privacy policy from time to time.</p>
+            </div>
+            <div class="modal-footer" style="border-top: 1px solid var(--border-color);">
+                <button type="button" class="btn-outline-gradient" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn-gradient" id="modalAcceptBtn">Accept</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Privacy Warning Banner -->
+<div id="privacyWarningBanner" class="privacy-banner p-3" style="position: fixed; bottom: 0; left: 0; right: 0;">
+    <div class="container">
+        <div class="row align-items-center gy-2">
+            <div class="col-md-7">
+                <i class="fas fa-shield-alt" style="color: #667eea; font-size: 1.2rem;"></i>
+                <span class="fw-semibold me-2">We care about your privacy:</span>
+                <span>We use cookies to improve your experience.</span>
+            </div>
+            <div class="col-md-5 text-md-end">
+                <button id="btnAccept" class="btn-gradient me-2">Accept</button>
+                <button id="btnDecline" class="btn-outline-gradient me-2">Decline</button>
+                <button id="btnReadMoreBanner" class="btn-outline-gradient">Read More</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Scripts -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+    // Initialize AOS
+    AOS.init({
+        duration: 1000,
+        once: true,
+        offset: 100
+    });
+
+    // Dark/Light Mode Toggle
+    const themeToggle = document.getElementById('themeToggleBtn');
+    const themeText = document.getElementById('themeText');
+    const body = document.body;
+    
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'dark') {
+        body.classList.add('dark');
+        themeText.innerHTML = '<i class="fas fa-sun"></i> Light Mode';
+    } else {
+        themeText.innerHTML = '<i class="fas fa-moon"></i> Dark Mode';
+    }
+    
+    themeToggle.addEventListener('click', () => {
+        body.classList.toggle('dark');
+        if (body.classList.contains('dark')) {
+            localStorage.setItem('theme', 'dark');
+            themeText.innerHTML = '<i class="fas fa-sun"></i> Light Mode';
+        } else {
+            localStorage.setItem('theme', 'light');
+            themeText.innerHTML = '<i class="fas fa-moon"></i> Dark Mode';
+        }
+    });
+    
+    // Privacy Banner Logic
+    const banner = document.getElementById('privacyWarningBanner');
+    const acceptBtn = document.getElementById('btnAccept');
+    const declineBtn = document.getElementById('btnDecline');
+    const readMoreBanner = document.getElementById('btnReadMoreBanner');
+    const modalAccept = document.getElementById('modalAcceptBtn');
+    const privacyModal = new bootstrap.Modal(document.getElementById('privacyPolicyModal'));
+    
+    const consentGiven = localStorage.getItem('privacyConsent');
+    if (consentGiven === 'accepted') {
+        banner.style.display = 'none';
+    }
+    
+    function acceptConsent() {
+        localStorage.setItem('privacyConsent', 'accepted');
+        banner.style.display = 'none';
+        privacyModal.hide();
+    }
+    
+    acceptBtn.addEventListener('click', acceptConsent);
+    modalAccept.addEventListener('click', acceptConsent);
+    
+    declineBtn.addEventListener('click', () => {
+        localStorage.setItem('privacyConsent', 'declined');
+        alert('Your refusal has been recorded. You can change your choice later.');
+    });
+    
+    readMoreBanner.addEventListener('click', () => privacyModal.show());
+    document.getElementById('readMorePolicyBtn').addEventListener('click', (e) => {
+        e.preventDefault();
+        privacyModal.show();
+    });
+    document.getElementById('footerPrivacyLink').addEventListener('click', (e) => {
+        e.preventDefault();
+        privacyModal.show();
+    });
+    
+    // Contact Form Handler
+    const contactForm = document.getElementById('contactForm');
+    const formFeedback = document.getElementById('formFeedback');
+    
+    contactForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const name = document.getElementById('fullName')?.value.trim();
+        const email = document.getElementById('emailInput')?.value.trim();
+        const message = document.getElementById('messageText')?.value.trim();
+        
+        if (!name || !email || !message) {
+            formFeedback.innerHTML = '<span class="text-danger">⚠️ Please fill in all required fields</span>';
+            return;
+        }
+        
+        formFeedback.innerHTML = '<span class="text-success">✅ Your message has been sent successfully! We will contact you soon.</span>';
+        contactForm.reset();
+        setTimeout(() => formFeedback.innerHTML = '', 5000);
+    });
+    
+    // Hide/Show navbar on scroll
+    let lastScroll = 0;
+    window.addEventListener('scroll', () => {
+        const currentScroll = window.pageYOffset;
+        const navbar = document.querySelector('.navbar');
+        if (currentScroll > lastScroll && currentScroll > 100) {
+            navbar.style.transform = 'translateY(-100%)';
+        } else {
+            navbar.style.transform = 'translateY(0)';
+        }
+        lastScroll = currentScroll;
+    });
+</script>
+</body>
+</html>
