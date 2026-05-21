@@ -5,13 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <meta name="google-site-verification" content="y1Nz4EtuPKTfSxakRserCkVoKIme9Vw-xLtFuKdi5S8" />
     <title>NOUBIA LIMITED</title>
-    <!-- Bootstrap 5 CSS + LTR -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Font Awesome 6 -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800&display=swap" rel="stylesheet">
-    <!-- AOS Animation Library -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <style>
         * {
@@ -19,22 +15,25 @@
             transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
         }
 
-        /* ========== THEME VARIABLES ========== */
+        /* ========== THEME VARIABLES (GOLDEN EDITION) ========== */
         :root {
             --bg-primary: #ffffff;
-            --bg-secondary: #f8f9fa;
+            --bg-secondary: #fdfbf7; 
             --text-primary: #2c3e50;
             --text-secondary: #6c757d;
             --card-bg: #ffffff;
             --navbar-bg: rgba(255, 255, 255, 0.95);
-            --border-color: #e9ecef;
-            --btn-primary-bg: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --border-color: #f1e5cf; 
+            --btn-primary-bg: linear-gradient(135deg, #d4af37 0%, #aa7c11 100%); 
             --btn-primary-color: #ffffff;
-            --footer-bg: #2c3e50;
-            --footer-text: #ecf0f1;
-            --shadow-sm: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
-            --shadow-md: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
-            --shadow-lg: 0 1rem 3rem rgba(0, 0, 0, 0.1);
+            --footer-bg: #1e1b15; 
+            --footer-text: #f3e9dc;
+            --shadow-sm: 0 0.125rem 0.25rem rgba(212, 175, 55, 0.1);
+            --shadow-md: 0 0.5rem 1rem rgba(212, 175, 55, 0.15);
+            --shadow-lg: 0 1rem 3rem rgba(212, 175, 55, 0.2);
+            --gold-primary: #d4af37; 
+            --gold-gradient: linear-gradient(135deg, #f3e0aa 0%, #d4af37 50%, #aa7c11 100%);
+            --logo-filter: none; /* يحافظ على ألوان اللوجو الأصلية في الوضع الفاتح */
         }
 
         body.dark {
@@ -44,13 +43,14 @@
             --text-secondary: #a0a8c0;
             --card-bg: #1f1f2f;
             --navbar-bg: rgba(26, 26, 46, 0.95);
-            --border-color: #2d2d44;
-            --btn-primary-bg: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --border-color: #3d3d5c;
+            --btn-primary-bg: linear-gradient(135deg, #f3e0aa 0%, #d4af37 50%, #aa7c11 100%);
             --footer-bg: #0f0f1a;
             --footer-text: #e0e0e0;
             --shadow-sm: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.3);
             --shadow-md: 0 0.5rem 1rem rgba(0, 0, 0, 0.4);
             --shadow-lg: 0 1rem 3rem rgba(0, 0, 0, 0.4);
+            --logo-filter: drop-shadow(0px 0px 8px rgba(212, 175, 55, 0.6)); /* يعطي توهج ذهبي خفيف في الوضع المظلم */
         }
 
         body {
@@ -69,7 +69,6 @@
             position: relative;
         }
 
-        /* Remove scroll snap to allow footer to show */
         html {
             scroll-behavior: smooth;
         }
@@ -86,6 +85,7 @@
         .modern-card:hover {
             transform: translateY(-5px);
             box-shadow: var(--shadow-md);
+            border-color: var(--gold-primary);
         }
 
         /* Navbar */
@@ -93,7 +93,7 @@
             background: var(--navbar-bg);
             backdrop-filter: blur(10px);
             border-bottom: 1px solid var(--border-color);
-            padding: 12px 0;
+            padding: 8px 0;
             position: fixed;
             top: 0;
             width: 100%;
@@ -103,10 +103,20 @@
 
         .navbar-brand {
             font-weight: 800;
-            font-size: 1.8rem;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            background: var(--gold-gradient);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+        }
+
+        .navbar-logo-img {
+            height: 45px;
+            width: auto;
+            object-fit: contain;
+            filter: var(--logo-filter);
         }
 
         .nav-link {
@@ -116,18 +126,18 @@
         }
 
         .nav-link:hover {
-            color: #667eea !important;
+            color: var(--gold-primary) !important;
             transform: translateY(-2px);
         }
 
         /* Buttons */
         .btn-gradient {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
+            background: var(--btn-primary-bg);
+            color: #1a1a2e !important; 
+            font-weight: 700;
             border: none;
             padding: 10px 28px;
             border-radius: 50px;
-            font-weight: 600;
             transition: all 0.3s ease;
             box-shadow: var(--shadow-sm);
         }
@@ -135,13 +145,13 @@
         .btn-gradient:hover {
             transform: translateY(-2px);
             box-shadow: var(--shadow-md);
-            color: white;
+            filter: brightness(1.1);
         }
 
         .btn-outline-gradient {
             background: transparent;
-            border: 2px solid #667eea;
-            color: #667eea;
+            border: 2px solid var(--gold-primary);
+            color: var(--gold-primary);
             padding: 8px 26px;
             border-radius: 50px;
             font-weight: 600;
@@ -149,9 +159,10 @@
         }
 
         .btn-outline-gradient:hover {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
+            background: var(--btn-primary-bg);
+            color: #1a1a2e !important;
             transform: translateY(-2px);
+            border-color: transparent;
         }
 
         /* Hero Section */
@@ -159,27 +170,29 @@
             background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
         }
 
-        .company-logo {
-            width: 120px;
-            height: 120px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            border-radius: 30px;
+        /* الحاوية الدائرية المتحركة للشعار الأساسي */
+        .hero-logo-container {
+            width: 260px;
+            height: 260px;
+            background: transparent;
             display: inline-flex;
             align-items: center;
             justify-content: center;
             margin-bottom: 20px;
             transition: all 0.3s ease;
-            animation: float 3s ease-in-out infinite;
+            animation: float 4s ease-in-out infinite;
+        }
+
+        .hero-logo-img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            filter: var(--logo-filter);
         }
 
         @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-10px); }
-        }
-
-        .company-logo i {
-            font-size: 3.5rem;
-            color: white;
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-12px) rotate(1deg); }
         }
 
         /* Form Elements */
@@ -193,17 +206,25 @@
         }
 
         .form-modern:focus {
-            border-color: #667eea;
+            border-color: var(--gold-primary);
             outline: none;
-            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+            box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.2);
         }
 
         /* Team Image */
         .team-image {
-            background: linear-gradient(135deg, #667eea20 0%, #764ba220 100%);
+            background: rgba(212, 175, 55, 0.05);
             border-radius: 20px;
             padding: 30px;
             border: 1px solid var(--border-color);
+            text-align: center;
+        }
+
+        .about-logo-img {
+            height: 120px;
+            object-fit: contain;
+            filter: var(--logo-filter);
+            margin-bottom: 15px;
         }
 
         /* Info Cards */
@@ -218,6 +239,7 @@
         .info-card:hover {
             transform: translateX(-5px);
             box-shadow: var(--shadow-md);
+            border-color: var(--gold-primary);
         }
 
         /* Scroll Indicator */
@@ -232,21 +254,15 @@
         }
 
         @keyframes bounce {
-            0%, 20%, 50%, 80%, 100% {
-                transform: translateX(-50%) translateY(0);
-            }
-            40% {
-                transform: translateX(-50%) translateY(-20px);
-            }
-            60% {
-                transform: translateX(-50%) translateY(-10px);
-            }
+            0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
+            40% { transform: translateX(-50%) translateY(-20px); }
+            60% { transform: translateX(-50%) translateY(-10px); }
         }
 
         .scroll-indicator i {
             font-size: 2rem;
-            color: #667eea;
-            opacity: 0.7;
+            color: var(--gold-primary);
+            opacity: 0.8;
         }
 
         /* Theme Toggle */
@@ -262,6 +278,7 @@
 
         .theme-toggle:hover {
             background: var(--bg-secondary);
+            border-color: var(--gold-primary);
             transform: translateY(-2px);
         }
 
@@ -272,6 +289,7 @@
             padding: 50px 0 30px;
             position: relative;
             z-index: 10;
+            border-top: 2px solid var(--gold-primary);
         }
 
         footer a {
@@ -281,7 +299,7 @@
         }
 
         footer a:hover {
-            color: #667eea;
+            color: var(--gold-primary);
             transform: translateX(-5px);
             display: inline-block;
         }
@@ -289,7 +307,7 @@
         /* Privacy Banner */
         .privacy-banner {
             background: var(--card-bg);
-            border-top: 3px solid #667eea;
+            border-top: 3px solid var(--gold-primary);
             box-shadow: var(--shadow-lg);
             backdrop-filter: blur(10px);
             z-index: 1100;
@@ -305,20 +323,21 @@
         }
 
         ::-webkit-scrollbar-thumb {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: var(--btn-primary-bg);
             border-radius: 10px;
+        }
+
+        .footer-logo-img {
+            height: 40px;
+            object-fit: contain;
+            margin-right: 8px;
+            filter: var(--logo-filter);
         }
 
         /* Animations */
         @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         .fade-in-up {
@@ -331,27 +350,19 @@
                 min-height: auto;
                 padding: 100px 0;
             }
-            
-            .scroll-indicator {
-                display: none;
-            }
-            
-            .navbar-brand {
-                font-size: 1.4rem;
-            }
+            .scroll-indicator { display: none; }
+            .navbar-brand { font-size: 1.2rem; }
+            .hero-logo-container { width: 180px; height: 180px; }
         }
         
-        /* Adjust for fixed navbar */
         section {
             scroll-margin-top: 80px;
         }
         
-        /* Contact section specific */
         .contact-section-bg {
             background: var(--bg-secondary);
         }
         
-        /* Make sure sections don't overflow */
         .container {
             padding-top: 20px;
             padding-bottom: 20px;
@@ -360,11 +371,10 @@
 </head>
 <body>
 
-<!-- Navigation -->
 <nav class="navbar navbar-expand-lg">
     <div class="container">
         <a class="navbar-brand" href="#">
-            <i class="fas fa-rocket"></i> NOUBIA LIMITED
+            <img src="1.png" alt="Noubia Logo" class="navbar-logo-img"> NOUBIA LIMITED
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMain">
             <span class="navbar-toggler-icon"></span>
@@ -377,7 +387,6 @@
             </ul>
             <div class="d-flex gap-2">
                 <button id="themeToggleBtn" class="theme-toggle">
-                    
                     <span id="themeText">Dark Mode</span>
                 </button>
                 <a href="#contact-section" class="btn-gradient">Contact Us</a>
@@ -387,16 +396,15 @@
 </nav>
 
 <main>
-    <!-- Home Section - Full Screen -->
     <section id="home-section" class="full-screen hero-section">
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-lg-7 text-center text-lg-start" data-aos="fade-up">
-                    <div class="company-logo">
-                        <i class="fas fa-chart-line"></i>
+                    <div class="hero-logo-container">
+                        <img src="1.png" alt="Noubia Hero Logo" class="hero-logo-img">
                     </div>
                     <h1 class="display-4 fw-bold mb-3">
-                        NOUBIA LIMITED <span style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">for Digital Solutions</span>
+                        NOUBIA LIMITED <span style="background: var(--gold-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">for Digital Solutions</span>
                     </h1>
                     <p class="lead mb-4" style="color: var(--text-secondary);">A leading company specialized in creating integrated digital solutions. We believe the future is built with smart software.</p>
                     <div class="d-flex flex-wrap gap-3 justify-content-center justify-content-lg-start">
@@ -404,14 +412,14 @@
                         <a href="#" class="btn-outline-gradient btn-lg" id="readMorePolicyBtn"><i class="fas fa-shield-alt me-2"></i>Privacy Policy</a>
                     </div>
                     <div class="mt-4">
-                        <i class="fas fa-link"></i> Quick Links: 
+                        <i class="fas fa-link" style="color: var(--gold-primary);"></i> Quick Links: 
                         <a href="#contact-section" class="text-decoration-none me-2" style="color: var(--text-primary);">Contact Us</a> | 
                         <a href="#" id="footerPrivacyLink" class="text-decoration-none me-2" style="color: var(--text-primary);">Privacy Policy</a>
                     </div>
                 </div>
                 <div class="col-lg-5 text-center" data-aos="fade-up" data-aos-delay="200">
                     <div class="modern-card p-5">
-                        <i class="fas fa-chart-line" style="font-size: 6rem; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;"></i>
+                        <i class="fas fa-chart-line" style="font-size: 6rem; background: var(--gold-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent;"></i>
                         <h3 class="mt-3">Smart Solutions for the Future</h3>
                         <p class="text-muted">We innovate to make a difference</p>
                     </div>
@@ -423,22 +431,21 @@
         </div>
     </section>
 
-    <!-- About Section - Full Screen -->
     <section id="about-section" class="full-screen">
         <div class="container">
             <div class="text-center mb-5" data-aos="fade-up">
-                <div class="d-inline-block px-4 py-2 rounded-pill" style="background: linear-gradient(135deg, #667eea20 0%, #764ba220 100%);">
-                    <span class="fw-bold" style="color: #667eea;">Who We Are</span>
+                <div class="d-inline-block px-4 py-2 rounded-pill" style="background: rgba(212, 175, 55, 0.15);">
+                    <span class="fw-bold" style="color: var(--gold-primary);">Who We Are</span>
                 </div>
                 <h2 class="fw-bold mt-3" style="color: var(--text-primary);">About NOUBIA LIMITED</h2>
             </div>
             <div class="row g-5 align-items-center">
                 <div class="col-md-6" data-aos="fade-left">
                     <div class="team-image">
-                        <i class="fas fa-users" style="font-size: 3rem; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;"></i>
-                        <p class="fw-bold mt-3">A complete team of experts</p>
+                        <img src="1.png" alt="Noubia About Logo" class="about-logo-img">
+                        <p class="fw-bold mt-2">A complete team of experts</p>
                         <div class="modern-card p-4 mt-3">
-                            <i class="fas fa-chalkboard-user" style="font-size: 2.5rem; color: #667eea;"></i>
+                            <i class="fas fa-chalkboard-user" style="font-size: 2.5rem; color: var(--gold-primary);"></i>
                             <p class="mt-2 mb-0">More than 50 successful projects</p>
                             <small class="text-muted">Serving more than 100 clients</small>
                         </div>
@@ -449,25 +456,22 @@
                     <p style="color: var(--text-secondary);">We are a leading national company specialized in creating integrated digital solutions. We believe that the future is built with smart software, and we work as a strategic partner for our clients to transform their ideas and ambitions into a tangible digital reality that contributes to business growth and market leadership.</p>
                     <div class="mt-4">
                         <div class="info-card mb-3">
-                            <i class="fas fa-bullseye" style="color: #667eea; font-size: 1.5rem;"></i>
+                            <i class="fas fa-bullseye" style="color: var(--gold-primary); font-size: 1.5rem;"></i>
                             <span class="fw-bold me-2">Our Mission:</span>
                             <span style="color: var(--text-secondary);">We are committed to delivering smart software solutions, mobile applications, and integrated e-commerce platforms that combine creative design with high programming efficiency. We are here to simplify technology and provide our clients with a secure and scalable digital environment that ensures business growth and strong returns on investment, with reliable and sustainable technical support.</span>
                         </div>
                         <div class="info-card mb-3">
-                            <i class="fas fa-eye" style="color: #667eea; font-size: 1.5rem;"></i>
+                            <i class="fas fa-eye" style="color: var(--gold-primary); font-size: 1.5rem;"></i>
                             <span class="fw-bold me-2">Our Vision:</span>
                             <span style="color: var(--text-secondary);">To become the most trusted digital partner and the leading destination in the region for innovative software solutions and e-commerce development, leading digital transformation and empowering businesses to shape their future with intelligence and innovation.</span>
                         </div>
                         <div class="info-card mb-3">
-                            <i class="fas fa-chart-simple" style="color: #667eea; font-size: 1.5rem;"></i>
+                            <i class="fas fa-chart-simple" style="color: var(--gold-primary); font-size: 1.5rem;"></i>
                             <span class="fw-bold me-2">Our Goals:</span>
                             <span style="color: var(--text-secondary);">Innovative smart solutions: Developing custom applications and software tailored to our clients' goals.
-
-E-commerce development: Building seamless and integrated stores that drive sales growth.
-
-Quality and security: Committing to the highest standards of secure programming and modern design.
-
-Continuous support: Providing reliable technical support to build long-term partnerships.</span>
+                            E-commerce development: Building seamless and integrated stores that drive sales growth.
+                            Quality and security: Committing to the highest standards of secure programming and modern design.
+                            Continuous support: Providing reliable technical support to build long-term partnerships.</span>
                         </div>
                     </div>
                 </div>
@@ -478,25 +482,24 @@ Continuous support: Providing reliable technical support to build long-term part
         </div>
     </section>
 
-    <!-- Contact Section - Full Screen -->
     <section id="contact-section" class="full-screen contact-section-bg">
         <div class="container">
             <div class="text-center mb-5" data-aos="fade-up">
-                <div class="d-inline-block px-4 py-2 rounded-pill" style="background: linear-gradient(135deg, #667eea20 0%, #764ba220 100%);">
-                    <span class="fw-bold" style="color: #667eea;">Get in Touch with Our Team</span>
+                <div class="d-inline-block px-4 py-2 rounded-pill" style="background: rgba(212, 175, 55, 0.15);">
+                    <span class="fw-bold" style="color: var(--gold-primary);">Get in Touch with Our Team</span>
                 </div>
                 <h2 class="fw-bold mt-3" style="color: var(--text-primary);">Contact Us</h2>
             </div>
             <div class="row g-4">
                 <div class="col-md-5" data-aos="fade-left">
                     <div class="modern-card p-4 h-100">
-                        <h5 class="fw-bold"><i class="fas fa-envelope" style="color: #667eea;"></i> Official Email</h5>
+                        <h5 class="fw-bold"><i class="fas fa-envelope" style="color: var(--gold-primary);"></i> Official Email</h5>
                         <p class="fs-5"><a href="mailto:info@noubia.co.uk/" style="color: var(--text-primary); text-decoration: none;">info@noubia.co.uk/</a></p>
                         <hr style="background: var(--border-color);">
-                        <h5 class="fw-bold"><i class="fas fa-map-marker" aria-hidden="true" style="color: #667eea;"></i> office address</h5>
-                        <p class="fs-5"><a href="mailto:info@http://noubia.co.uk/" style="color: var(--text-primary); text-decoration: none;">Office 3268 Xy 60 Tottenham Court Road, Area 1/1, Fitzrovia, London, United Kingdom, W1T 2EW/</a></p>
+                        <h5 class="fw-bold"><i class="fas fa-map-marker" aria-hidden="true" style="color: var(--gold-primary);"></i> office address</h5>
+                        <p class="fs-5"><a href="#" style="color: var(--text-primary); text-decoration: none;">Office 3268 Xy 60 Tottenham Court Road, Area 1/1, Fitzrovia, London, United Kingdom, W1T 2EW/</a></p>
                         <hr style="background: var(--border-color);">                       
-                        <h5 class="fw-bold mt-3"><i class="fas fa-clock" style="color: #667eea;"></i> Working Hours</h5>
+                        <h5 class="fw-bold mt-3"><i class="fas fa-clock" style="color: var(--gold-primary);"></i> Working Hours</h5>
                         <p>Sunday - Thursday: 9:00 AM – 6:00 PM</p>
                         <div class="mt-4">
                             <i class="fab fa-whatsapp" style="color: #25D366; font-size: 1.5rem;"></i>
@@ -507,7 +510,7 @@ Continuous support: Providing reliable technical support to build long-term part
                 </div>
                 <div class="col-md-7" data-aos="fade-right">
                     <div class="modern-card p-4 h-100">
-                        <h5 class="fw-bold mb-3"><i class="fas fa-paper-plane" style="color: #667eea;"></i> Message Form</h5>
+                        <h5 class="fw-bold mb-3"><i class="fas fa-paper-plane" style="color: var(--gold-primary);"></i> Message Form</h5>
                         <form id="contactForm">
                             <div class="row g-3">
                                 <div class="col-md-6">
@@ -539,17 +542,18 @@ Continuous support: Providing reliable technical support to build long-term part
     </section>
 </main>
 
-<!-- Footer - Now visible -->
 <footer>
     <div class="container">
         <div class="row">
             <div class="col-md-6">
-                <h5><i class="fas fa-rocket"></i> NOUBIA LIMITED</h5>
-                <p class="small">A leading company specialized in creating integrated digital solutions. We believe the future is built with smart software.</p>
+                <h5 style="background: var(--gold-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; display: flex; align-items: center;">
+                    <img src="1.png" alt="Noubia Footer Logo" class="footer-logo-img"> NOUBIA LIMITED
+                </h5>
+                <p class="small mt-2">A leading company specialized in creating integrated digital solutions. We believe the future is built with smart software.</p>
                 <p class="small mb-0">© 2026 All rights reserved</p>
             </div>
             <div class="col-md-3">
-                <h6>Quick Links</h6>
+                <h6 style="color: var(--gold-primary);">Quick Links</h6>
                 <ul class="list-unstyled small">
                     <li><a href="#home-section">Home</a></li>
                     <li><a href="#about-section">About Us</a></li>
@@ -557,33 +561,32 @@ Continuous support: Providing reliable technical support to build long-term part
                 </ul>
             </div>
             <div class="col-md-3">
-                <h6>Support</h6>
+                <h6 style="color: var(--gold-primary);">Support</h6>
                 <ul class="list-unstyled small">
-                    <li><i class="fas fa-envelope"></i> info@noubia.co.uk/</li>
+                    <li><i class="fas fa-envelope" style="color: var(--gold-primary);"></i> info@noubia.co.uk/</li>
                 </ul>
             </div>
         </div>
     </div>
 </footer>
 
-<!-- Privacy Policy Modal -->
 <div class="modal fade" id="privacyPolicyModal" tabindex="-1">
     <div class="modal-dialog modal-lg modal-dialog-centered">
         <div class="modal-content modern-card">
             <div class="modal-header" style="border-bottom: 1px solid var(--border-color);">
-                <h5 class="modal-title fw-bold"><i class="fas fa-lock" style="color: #667eea;"></i> Privacy Policy</h5>
+                <h5 class="modal-title fw-bold"><i class="fas fa-lock" style="color: var(--gold-primary);"></i> Privacy Policy</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
             </div>
             <div class="modal-body" style="max-height: 60vh; overflow-y: auto;">
-                <h5 style="color: #667eea;">1. Information Collection</h5>
+                <h5 style="color: var(--gold-primary);">1. Information Collection</h5>
                 <p>At NOUBIA LIMITED, we are committed to protecting the privacy of our website visitors. We may collect some data such as name and email address only when the contact form is filled out.</p>
-                <h5 style="color: #667eea;">2. Use of Information</h5>
+                <h5 style="color: var(--gold-primary);">2. Use of Information</h5>
                 <p>The data you provide is used to respond to your inquiries and improve our services.</p>
-                <h5 style="color: #667eea;">3. Data Protection</h5>
+                <h5 style="color: var(--gold-primary);">3. Data Protection</h5>
                 <p>We use appropriate technical and administrative security measures to protect your information.</p>
-                <h5 style="color: #667eea;">4. Cookies</h5>
+                <h5 style="color: var(--gold-primary);">4. Cookies</h5>
                 <p>Our website may use cookies to improve the browsing experience.</p>
-                <h5 style="color: #667eea;">5. Policy Updates</h5>
+                <h5 style="color: var(--gold-primary);">5. Policy Updates</h5>
                 <p>We reserve the right to update this privacy policy from time to time.</p>
             </div>
             <div class="modal-footer" style="border-top: 1px solid var(--border-color);">
@@ -594,12 +597,11 @@ Continuous support: Providing reliable technical support to build long-term part
     </div>
 </div>
 
-<!-- Privacy Warning Banner -->
 <div id="privacyWarningBanner" class="privacy-banner p-3" style="position: fixed; bottom: 0; left: 0; right: 0;">
     <div class="container">
         <div class="row align-items-center gy-2">
             <div class="col-md-7">
-                <i class="fas fa-shield-alt" style="color: #667eea; font-size: 1.2rem;"></i>
+                <i class="fas fa-shield-alt" style="color: var(--gold-primary); font-size: 1.2rem;"></i>
                 <span class="fw-semibold me-2">We care about your privacy:</span>
                 <span>We use cookies to improve your experience.</span>
             </div>
@@ -612,18 +614,11 @@ Continuous support: Providing reliable technical support to build long-term part
     </div>
 </div>
 
-<!-- Scripts -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script>
-    // Initialize AOS
-    AOS.init({
-        duration: 1000,
-        once: true,
-        offset: 100
-    });
+    AOS.init({ duration: 1000, once: true, offset: 100 });
 
-    // Dark/Light Mode Toggle
     const themeToggle = document.getElementById('themeToggleBtn');
     const themeText = document.getElementById('themeText');
     const body = document.body;
@@ -647,7 +642,6 @@ Continuous support: Providing reliable technical support to build long-term part
         }
     });
     
-    // Privacy Banner Logic
     const banner = document.getElementById('privacyWarningBanner');
     const acceptBtn = document.getElementById('btnAccept');
     const declineBtn = document.getElementById('btnDecline');
@@ -656,9 +650,7 @@ Continuous support: Providing reliable technical support to build long-term part
     const privacyModal = new bootstrap.Modal(document.getElementById('privacyPolicyModal'));
     
     const consentGiven = localStorage.getItem('privacyConsent');
-    if (consentGiven === 'accepted') {
-        banner.style.display = 'none';
-    }
+    if (consentGiven === 'accepted') { banner.style.display = 'none'; }
     
     function acceptConsent() {
         localStorage.setItem('privacyConsent', 'accepted');
@@ -668,23 +660,15 @@ Continuous support: Providing reliable technical support to build long-term part
     
     acceptBtn.addEventListener('click', acceptConsent);
     modalAccept.addEventListener('click', acceptConsent);
-    
     declineBtn.addEventListener('click', () => {
         localStorage.setItem('privacyConsent', 'declined');
         alert('Your refusal has been recorded. You can change your choice later.');
     });
     
     readMoreBanner.addEventListener('click', () => privacyModal.show());
-    document.getElementById('readMorePolicyBtn').addEventListener('click', (e) => {
-        e.preventDefault();
-        privacyModal.show();
-    });
-    document.getElementById('footerPrivacyLink').addEventListener('click', (e) => {
-        e.preventDefault();
-        privacyModal.show();
-    });
+    document.getElementById('readMorePolicyBtn').addEventListener('click', (e) => { e.preventDefault(); privacyModal.show(); });
+    document.getElementById('footerPrivacyLink').addEventListener('click', (e) => { e.preventDefault(); privacyModal.show(); });
     
-    // Contact Form Handler
     const contactForm = document.getElementById('contactForm');
     const formFeedback = document.getElementById('formFeedback');
     
@@ -704,7 +688,6 @@ Continuous support: Providing reliable technical support to build long-term part
         setTimeout(() => formFeedback.innerHTML = '', 5000);
     });
     
-    // Hide/Show navbar on scroll
     let lastScroll = 0;
     window.addEventListener('scroll', () => {
         const currentScroll = window.pageYOffset;
