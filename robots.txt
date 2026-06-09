@@ -3,7 +3,7 @@ User-agent: *
 Allow: /
 
 # Host
-Host: https://www.snapstock-app.com
+Host: https://noubia.co.uk
 
 # Sitemaps
-Sitemap: https://www.snapstock-app.com/sitemap.xml
+Sitemap: https://noubia.co.uk/sitemap.xml
