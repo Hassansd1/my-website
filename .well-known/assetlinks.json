@@ -1,0 +1,15 @@
+[
+  {
+    "relation": [
+      "delegate_permission/common.handle_all_urls",
+      "delegate_permission/common.get_login_creds"
+    ],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.SnapStock.inventory",
+      "sha256_cert_fingerprints": [
+        "B2:85:8B:AA:E8:B0:0B:2A:A8:58:03:EA:1B:61:24:58:92:34:87:DB:85:C3:F3:81:85:8F:F0:B0:72:31:91:C8"
+      ]
+    }
+  }
+]
