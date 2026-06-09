@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/png" href="logo.png">
+    
+    <!-- Title Optimized with Keywords -->
+    <title>SnapStock | Simple Warehouse Inventory Management App</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- Cleaned & Professional Meta Description -->
+    <meta name="description" content="SnapStock is a simple, offline warehouse inventory management app. Track stock, export data to Excel, scan barcodes, and share reports via WhatsApp easily." />
+    <meta name="robots" content="index, follow" />
+    
+    <!-- Change this to your actual live domain -->
+    <link rel="canonical" href="https://noubia.co.uk/SnapStock.html" />
+    
+    <!-- Open Graph Meta Tags for Better Social Sharing (WhatsApp, FB) -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="SnapStock | Simple Warehouse Inventory Management App" />
+    <meta property="og:description" content="Manage your warehouse stock offline, scan barcodes, export reports to Excel, and share instantly via WhatsApp." />
+    <meta property="og:image" content="https://www.snapstock-app.com/logo.png" />
+    <meta property="og:url" content="https://www.snapstock-app.com/" />
+    <meta property="og:site_name" content="SnapStock" />
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="SnapStock | Warehouse Inventory Management" />
+    <meta name="twitter:description" content="Track inventory offline, export to Excel, and scan barcodes easily." />
+
+    <!-- Fonts and CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.css" />
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+      :root {
+        --primary-gradient-start: #4f46e5;
+        --primary-gradient-end: #3b82f6;
+      }
+
+      body {
+        font-family: "Inter", sans-serif;
+        scroll-behavior: smooth;
+      }
+
+      /* ---------- Full-Screen Responsive Carousel Styles ---------- */
+      #heroCarousel .carousel-item {
+        height: 100vh; 
+        min-height: 500px; 
+        background-size: cover; 
+        background-position: center center; 
+        background-repeat: no-repeat; 
+        position: relative;
+      }
+      
+      /* Dark overlay to make readable text above images */
+      #heroCarousel .carousel-item::before {
+        content: "";
+        position: absolute;
+        top: 0; left: 0; width: 100%; height: 100%;
+        background: rgba(0, 0, 0, 0.5); /* تعتيم الخلفية لبروز النص */
+        z-index: 1;
+      }
+      
+      .custom-slide-1 {
+        background-image: url('Slide-mobile.png'); 
+      }
+
+      @media (min-width: 768px) {
+        .custom-slide-1 {
+          background-image: url('Slide-tablet.png'); 
+        }
+      }
+
+      @media (min-width: 1200px) {
+        .custom-slide-1 {
+          background-image: url('Slide.png'); 
+        }
+      }
+
+      #heroCarousel .carousel-content {
+        position: relative;
+        z-index: 2;
+      }
+
+      .feature-icon {
+        font-size: 2.5rem;
+        color: var(--primary-gradient-start);
+      }
+
+      .download-icon {
+        font-size: 2rem;
+      }
+
+      footer {
+        background-color: #f8f9fa;
+        padding: 2rem 0;
+      }
+
+      .section-title { font-size: 2rem; font-weight: 700; }
+
+      .contact-card {
+        background: #ffffff;
+        border: 1px solid #e9ecef;
+        border-radius: 1rem;
+        padding: 2rem;
+        box-shadow: 0 8px 24px rgba(0,0,0,0.05);
+      }
+
+      .contact-list { list-style: none; padding: 0; margin: 0; }
+      .contact-item {
+        display: flex;
+        align-items: center;
+        gap: .75rem;
+        margin-bottom: 1rem;
+        font-size: 1rem;
+      }
+      .contact-item:last-child { margin-bottom: 0; }
+      .contact-item i {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 38px;
+        height: 38px;
+        border-radius: 50%;
+        background-color: #eef4ff;
+        color: #0d6efd;
+        font-size: 1.25rem;
+        flex-shrink: 0;
+      }
+      .contact-item span { line-height: 1.4; }
+
+      .form-control, .btn { border-radius: 0.5rem; }
+    </style>
+  </head>
+  <body>
+    <!-- Fixed Brand Name for Consistency -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm sticky-top">
+      <div class="container">
+        <a class="navbar-brand fw-bold" href="#home" aria-label="SnapStock Home Page"><i class="bi bi-speedometer2"></i> SnapStock</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu" aria-controls="navMenu" aria-expanded="false" aria-label="Toggle Navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navMenu">
+          <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+            <li class="nav-item"><a class="nav-link" href="#features">Features</a></li>
+            <li class="nav-item"><a class="nav-link" href="#download">Download</a></li>
+            <li class="nav-item"><a class="nav-link" href="#contact">Contact Us</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Added H1 and Text Content for SEO Indexing -->
+    <section id="home">
+      <div id="heroCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active custom-slide-1">
+            <div class="carousel-content d-flex flex-column justify-content-center align-items-center h-100 text-center text-white px-3">
+               <h1 class="display-4 fw-bold mb-3">Smart Warehouse & Inventory Management</h1>
+               <p class="lead mb-4 max-width-600">Take control of your stock instantly. Features barcode scanning, offline support, and seamless Excel exporting.</p>
+               <a href="#download" class="btn btn-primary btn-lg px-4 me-md-2 fw-bold">Get Started For Free</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Adjusted heading hierarchy for semantic HTML (H2 -> H3) -->
+    <section class="py-5" id="features">
+      <div class="container">
+        <h2 class="text-center mb-5 fw-bold section-title">Exceptional App Features</h2>
+        <div class="row g-4 justify-content-center">
+          <div class="col-6 col-md-4 col-lg-3 text-center">
+            <div class="feature-icon mb-3"><i class="bi bi-speedometer2" aria-hidden="true"></i></div>
+            <h3 class="h6 fw-bold">Blazing Fast</h3>
+            <p class="small text-muted mb-0">High and smooth performance ensures tasks are completed without any delay.</p>
+          </div>
+          <div class="col-6 col-md-4 col-lg-3 text-center">
+            <div class="feature-icon mb-3"><i class="bi bi-shield-lock" aria-hidden="true"></i></div>
+            <h3 class="h6 fw-bold">Secure & Trusted</h3>
+            <p class="small text-muted mb-0">Advanced encryption to fully protect your logs and data assets.</p>
+          </div>
+          <div class="col-6 col-md-4 col-lg-3 text-center">
+            <div class="feature-icon mb-3"><i class="bi bi-phone" aria-hidden="true"></i></div>
+            <h3 class="h6 fw-bold">Easy to Use</h3>
+            <p class="small text-muted mb-0">A simple, user-friendly interface suitable for all user groups.</p>
+          </div>
+          <div class="col-6 col-md-4 col-lg-3 text-center">
+            <div class="feature-icon mb-3"><i class="bi bi-wifi-off" aria-hidden="true"></i></div>
+            <h3 class="h6 fw-bold">Works Offline</h3>
+            <p class="small text-muted mb-0">Keep working anywhere without worrying about cellular connection.</p>
+          </div>
+          <div class="col-6 col-md-4 col-lg-3 text-center">
+            <div class="feature-icon mb-3"><i class="bi bi-file-earmark-spreadsheet" aria-hidden="true"></i></div>
+            <h3 class="h6 fw-bold">Export to Excel</h3>
+            <p class="small text-muted mb-0">Integrated data saving and reporting in XLSX format with a single click.</p>
+          </div>
+          <div class="col-6 col-md-4 col-lg-3 text-center">
+            <div class="feature-icon mb-3"><i class="bi bi-upc-scan" aria-hidden="true"></i></div>
+            <h3 class="h6 fw-bold">Camera Barcode Scan</h3>
+            <p class="small text-muted mb-0">Fast and accurate scanning capabilities for all standard code types.</p>
+          </div>
+          <div class="col-6 col-md-4 col-lg-3 text-center">
+            <div class="feature-icon mb-3"><i class="bi bi-moon-stars" aria-hidden="true"></i></div>
+            <h3 class="h6 fw-bold">Dark Mode</h3>
+            <p class="small text-muted mb-0">Comfortable eye protection for low-light working environments.</p>
+          </div>
+          <div class="col-6 col-md-4 col-lg-3 text-center">
+            <div class="feature-icon mb-3"><i class="bi bi-translate" aria-hidden="true"></i></div>
+            <h3 class="h6 fw-bold">Supports 38 Languages</h3>
+            <p class="small text-muted mb-0">A truly global, multi-lingual experience out of the box.</p>
+          </div>
+          <div class="col-6 col-md-4 col-lg-3 text-center">
+            <div class="feature-icon mb-3"><i class="bi bi-whatsapp" aria-hidden="true"></i></div>
+            <h3 class="h6 fw-bold">Easy Sharing</h3>
+            <p class="small text-muted mb-0">Instantly share your records and reports via WhatsApp or other platforms.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-5" id="download">
+      <div class="container text-center">
+        <h2 class="fw-bold mb-4 section-title">Download the App Now For Free</h2>
+        <p class="mb-4 text-muted">Get your copy today. The application is fully available for Android.</p>
+        <a href="https://play.google.com/store/apps/details?id=com.SnapStock.inventory" class="btn btn-success btn-lg" aria-label="Download SnapStock from Google Play Store"><i class="bi bi-google-play download-icon"></i></a>
+      </div>
+    </section>
+
+    <section class="py-5 bg-light" id="contact">
+      <div class="container">
+        <h2 class="section-title text-center mb-5">Contact Us</h2>
+        <div class="row g-4">
+          <div class="col-lg-6">
+            <div class="contact-card h-100">
+              <h3 class="h5 mb-4 fw-bold"><i class="bi bi-info-circle-fill me-1"></i> Contact Information</h3>
+              <ul class="contact-list">
+                <li class="contact-item"><i class="bi bi-geo-alt-fill" aria-hidden="true"></i><span>Office 3268 Xy 60 Tottenham Court Road, Area 1/1, Fitzrovia, London, United Kingdom, W1T 2EW</span></li>
+                <li class="contact-item"><i class="bi bi-telephone-fill" aria-hidden="true"></i><span>+44 20 3432 3762</span></li>
+                <li class="contact-item"><i class="bi bi-envelope-fill" aria-hidden="true"></i><span>info@noubia.co.uk</span></li>
+                <li class="contact-item"><i class="bi bi-whatsapp" aria-hidden="true"></i><span>+44 20 3432 3762</span></li>
+              </ul>
+              <!-- Added 'title' to iframe for standard SEO compliance -->
+              <div class="mt-4 rounded overflow-hidden">
+                <iframe title="Google Maps Location of Noubia Limited" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d190.92604863397764!2d-0.13374078516603602!3d51.51973323978595!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48761b2c18f017f5%3A0x6504f21c9b6211cc!2zVG90dGVuaGFtIEN0IFJkLCBMb25kb24gVzFUIDJFV9iMINin2YTZhdmF2YTZg9ipINin2YTZhdiq2K3Yr9ip!5e1!3m2!1sar!2ssa!4v1780984604061!5m2!1sar!2ssa" width="100%" height="250" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <div class="contact-card h-100">
+               <h3 class="h5 mb-4 fw-bold"><i class="bi bi-chat-dots-fill me-1"></i> Send an Instant Message</h3>
+              <form action="#" method="POST">
+                <div class="mb-3">
+                  <label for="userName" class="form-label">Full Name</label>
+                  <input type="text" id="userName" class="form-control" placeholder="Enter your full name" required>
+                </div>
+                <div class="mb-3">
+                  <label for="userEmail" class="form-label">Email Address</label>
+                  <input type="email" id="userEmail" class="form-control" placeholder="name@example.com" required>
+                </div>
+                <div class="mb-3">
+                  <label for="subject" class="form-label">Subject</label>
+                  <input type="text" id="subject" class="form-control" placeholder="Message subject" required>
+                </div>
+                <div class="mb-3">
+                  <label for="message" class="form-label">Message</label>
+                  <textarea id="message" class="form-control" rows="5" placeholder="Write your message details here" required></textarea>
+                </div>
+                <button type="submit" style="padding:.6rem 1.5rem; font-weight:600;" class="btn btn-primary w-100">Send Message</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="bg-dark text-light py-4 mt-auto">
+      <div class="container">
+        <div class="d-flex flex-column flex-md-row align-items-center justify-content-between gap-3">
+          <small class="m-0 order-2 order-md-1">
+            © 2026 All Rights Reserved — NOUBIA LIMITED
+          </small>
+          <!-- Fixed wrong aria-label (changed from Facebook to WhatsApp) -->
+          <div class="d-flex gap-3 order-1 order-md-2">
+            <a href="https://wa.me/442034323762" class="link-light fs-4" aria-label="Contact SnapStock on WhatsApp"><i class="bi bi-whatsapp"></i></a>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>

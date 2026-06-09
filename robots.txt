@@ -1,0 +1,9 @@
+# https://www.robotstxt.org/robotstxt.html
+User-agent: *
+Allow: /
+
+# Host
+Host: https://www.snapstock-app.com
+
+# Sitemaps
+Sitemap: https://www.snapstock-app.com/sitemap.xml
